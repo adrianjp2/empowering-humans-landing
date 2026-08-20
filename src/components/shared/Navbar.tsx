@@ -34,7 +34,18 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo - Izquierda */}
-          <Link href="/" className="flex items-center group py-0.5">
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (window.location.hash) {
+                window.history.pushState(null, "", "/");
+              }
+            }}
+            className="flex items-center group py-0.5 cursor-pointer"
+            aria-label="Ir al inicio"
+          >
             <Image
               src="/logo-dark-header.png"
               alt="Empowering Humans"

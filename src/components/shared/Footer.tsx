@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -11,7 +13,18 @@ export default function Footer() {
           
           {/* Logo y Copyright */}
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <Link href="/" className="flex items-center group py-0.5">
+            <Link
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (window.location.hash) {
+                  window.history.pushState(null, "", "/");
+                }
+              }}
+              className="flex items-center group py-0.5 cursor-pointer"
+              aria-label="Ir al inicio"
+            >
               <Image
                 src="/logo-dark-header.png"
                 alt="Empowering Humans"
