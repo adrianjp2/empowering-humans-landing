@@ -25,8 +25,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0d0e12]/90 backdrop-blur-md border-b border-zinc-800/80 py-3.5 shadow-xl"
-          : "bg-[#0d0e12]/40 backdrop-blur-sm border-b border-white/5 py-4"
+          ? "bg-[#0d0e12]/95 backdrop-blur-md border-b border-zinc-800/80 py-3 shadow-xl"
+          : "bg-[#0d0e12]/60 backdrop-blur-sm border-b border-white/5 py-3.5 sm:py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,12 +37,12 @@ export default function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:border-[#ff4d6d]/50 transition-colors">
               <Users className="w-4 h-4 text-[#ff4d6d]" />
             </div>
-            <span className="text-lg font-bold tracking-tight text-white">
+            <span className="text-base sm:text-lg font-bold tracking-tight text-white">
               Empowering <span className="text-white font-extrabold">Humans</span>
             </span>
           </Link>
 
-          {/* Enlaces de Navegación y Botón CTA - Agrupados a la Derecha (Idéntico al PDF) */}
+          {/* Enlaces de Navegación y Botón CTA - Desktop (Oculto en Móvil) */}
           <div className="hidden md:flex items-center gap-8 lg:gap-10">
             <nav className="flex items-center gap-8">
               <Link
@@ -73,17 +73,11 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Menú Hamburguesa para Móvil */}
-          <div className="flex md:hidden items-center gap-3">
-            <Link
-              href="#demo"
-              className="px-3.5 py-1.5 rounded-full text-xs font-semibold text-white bg-[#ff4d6d] hover:bg-[#e63956] transition-colors shadow-accent-glow-sm"
-            >
-              Demo
-            </Link>
+          {/* Botón Hamburguesa Limpio para Móvil (Como en la captura) */}
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white focus:outline-none"
+              className="p-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-zinc-300 hover:text-white focus:outline-none cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -95,37 +89,37 @@ export default function Navbar() {
 
       {/* Menú Desplegable Móvil */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0d0e12] border-b border-zinc-800 px-4 pt-3 pb-6 space-y-4 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-[#0d0e12]/98 border-b border-zinc-800 px-5 pt-4 pb-6 space-y-4 animate-in slide-in-from-top duration-200 backdrop-blur-2xl">
           <nav className="flex flex-col space-y-3">
             <Link
               href="#beneficios"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-zinc-300 hover:text-white py-1 transition-colors"
+              className="text-base font-medium text-zinc-300 hover:text-white py-1.5 transition-colors border-b border-zinc-800/40"
             >
               Beneficios
             </Link>
             <Link
               href="#modulos"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-zinc-300 hover:text-white py-1 transition-colors"
+              className="text-base font-medium text-zinc-300 hover:text-white py-1.5 transition-colors border-b border-zinc-800/40"
             >
               Módulos
             </Link>
             <Link
               href="#seguridad"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-zinc-300 hover:text-white py-1 transition-colors"
+              className="text-base font-medium text-zinc-300 hover:text-white py-1.5 transition-colors border-b border-zinc-800/40"
             >
               Seguridad
             </Link>
           </nav>
-          <div className="pt-2 border-t border-zinc-800/80">
+          <div className="pt-2">
             <Link
               href="#demo"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold text-white bg-[#ff4d6d] hover:bg-[#e63956] transition-colors shadow-accent-glow"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#ff4d6d] hover:bg-[#e63956] transition-colors shadow-accent-glow"
             >
-              Demo gratuita
+              <span>Demo gratuita</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
