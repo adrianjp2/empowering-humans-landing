@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Users } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,14 +11,14 @@ export default function Footer() {
           
           {/* Logo y Copyright */}
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                <Users className="w-4 h-4 text-[#ff4d6d]" />
-              </div>
-              <span className="text-base sm:text-lg font-bold tracking-tight text-white">
-                Empowering{" "}
-                <span className="text-[#ff4d6d] font-extrabold">Humans</span>
-              </span>
+            <Link href="/" className="flex items-center group py-0.5">
+              <Image
+                src="/logo-dark-header.png"
+                alt="Empowering Humans"
+                width={180}
+                height={85}
+                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
+              />
             </Link>
 
             <span className="hidden sm:inline text-zinc-700">|</span>

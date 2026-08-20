@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Users, Menu, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,13 +34,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo - Izquierda */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center group-hover:border-[#ff4d6d]/50 transition-colors">
-              <Users className="w-4 h-4 text-[#ff4d6d]" />
-            </div>
-            <span className="text-base sm:text-lg font-bold tracking-tight text-white">
-              Empowering <span className="text-white font-extrabold">Humans</span>
-            </span>
+          <Link href="/" className="flex items-center group py-0.5">
+            <Image
+              src="/logo-dark-header.png"
+              alt="Empowering Humans"
+              width={200}
+              height={95}
+              className="h-10 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
+              priority
+            />
           </Link>
 
           {/* Enlaces de Navegación y Botón CTA - Desktop (Oculto en Móvil) */}
